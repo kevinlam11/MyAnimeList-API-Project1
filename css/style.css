@@ -4,12 +4,19 @@
     .jumbotron{
       display: flex;
       flex-direction: row-reverse;
+      min-height: 525px;
+
     }
     
     /* Set gray background color and 100% height */
     .sidenav {
       background-color: #f1f1f1;
       height: 100%;
+      margin: 10px;
+    }
+
+    .row{
+      margin: 10px;
     }
         
     /* On small screens, set height to 'auto' for the grid */
