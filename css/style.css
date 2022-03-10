@@ -12,7 +12,10 @@
     .sidenav {
       background-color: #f1f1f1;
       height: 100%;
-      margin: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 20px;
+     
     }
 
     .row{
@@ -24,8 +27,8 @@
       padding: 10px;
     }
 
-    .li{
-      padding: 10px;
+    .ul, li{
+      padding: 20px;
     }
         
     /* On small screens, set height to 'auto' for the grid */
