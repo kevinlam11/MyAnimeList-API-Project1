@@ -1,13 +1,10 @@
-// var infoBlockEl = document.querySelector('.info-block');
-
 // This the first fetch function
-function fetchData() {
+function fetchMALData() {
 
     try {
         const res = fetch('https://api.jikan.moe/v4/users/Raging-Man')
         const data = res.json();
         console.log(data)
-
         var markup = `
       <div>
           <h1>${data.data.username}</h1>
@@ -21,13 +18,41 @@ function fetchData() {
           </div>
       </div>`;
 
-        // infoBlockEl.insertAdjacentHTML('afterbegin', markup)
     } catch (error) {
         console.log('There was an error! ❌')
     }
+}
 
+function fetchMangaDexData() {
+    fetch('https://api.mangadex.org/user/Jan0195')
+        .then(res => res.json())
+        .then(data => console.log(data))
 
 }
 
 
-fetchData();
+function fetchBothDataSets() {
+    let bothSets = false;
+    let userInfo = {};
+
+    fetch('https://api.jikan.moe/v4/users/Raging-Man')
+        .then(res => res.json())
+        .then((data) => {
+            console.log(data)
+            userInfo.username = data.username;
+            userInfo.url = data.url;
+            userInfo.mal_id = data.mal_id;
+            userInfo.location = data.location;
+            userInfo.lastOnline = data.lastOnline;
+            userInfo.joined = data.joined;
+            userInfo.images = data.images.jpg.image_url;
+            userInfo.birthday = data.birthday;
+        })
+
+
+    if (bothSets === true) {
+        fetchMangaDexData()
+    }
+}
+
+fetchBothDataSets();
