@@ -34,15 +34,16 @@ li {
 
 body {
   font-family: "Arvo", serif;
+  background-image: url("https://i.redd.it/bnef3fhuqm261.png");
+  background-size: cover;
 }
 
-footer{
-  display:flex;
+footer {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-.personal-info{
-  
+.personal-info {
   display: flex;
   gap: 100px;
 }
