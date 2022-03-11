@@ -1,5 +1,7 @@
 :root {
   --border-color-main: #5c96c5;
+  --color: #f1f1f1;
+  --background-color: rgba(240, 129, 3, 0.8);
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -11,14 +13,14 @@
   display: flex;
   flex-direction: row-reverse;
   min-height: 525px;
-  background-color: rgba(240, 129, 3, 0.8);
+  background-color: var(--background-color);
   border-style: solid;
   border-color: var(--border-color-main);
 }
 
 /* Set gray background color and 100% height */
 .sidenav {
-  background-color: rgba(240, 129, 3, 0.8);
+  background-color: var(--background-color);
   height: 106%;
   margin-left: 10px;
   margin-right: 10px;
@@ -39,7 +41,7 @@
 .ul,
 li {
   padding: 20px;
-  color: #f1f1f1;
+  color: var(--color);
   font-size: 16px;
 }
 
@@ -53,8 +55,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(240, 129, 3, 0.8);
-  color: #f1f1f1;
+  background-color: var(--background-color);
+  color: var(--color);
   margin-top: 10px;
   border-color: var(--border-color-main);
   border-style: solid;
@@ -73,23 +75,29 @@ footer {
 }
 
 .well {
-  background: rgba(240, 129, 3, 0.8);
+  background-color: var(--background-color);
   border-color: var(--border-color-main);
   border-style: solid;
 }
 
 .card-text {
-  color: #f1f1f1;
+  color: var(--color);
 }
 
 h1.display-4 {
-  color: #f1f1f1;
+  color: var(--color);
 }
 
 h2 {
-  color: #f1f1f1;
+  color: var(--color);
 }
 
 a {
-  color: #f1f1f1;
+  color: var(--color);
+}
+
+.col-sm-12 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
