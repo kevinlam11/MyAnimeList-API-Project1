@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>My Animelist API</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <style>
-      form {
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 2);
-      }
+        form {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 2);
+        }
     </style>
-  </head>
-  <body
-    class="row justify-content-center align-items-center vh-100 flex-column"
-  >
-    <form class="col-12 col-md-4 bg-dark text-light py-4" id="loc-search">
-      <h1 class="text-center mx-4">My Animelist API</h1>
-      <h2 class="text-center mx-4">Please enter your Username below:</h2>
-      <div class="m-4">
-        <input class="form-control" type="text" id="q" name="q" required />
-      </div>
+</head>
+<body
+        class="row justify-content-center align-items-center vh-100 flex-column"
+>
+<form class="col-12 col-md-4 bg-dark text-light py-4" id="main-form">
+    <h1 class="text-center mx-4">My Animelist API</h1>
+    <h2 class="text-center mx-4">Please enter your Username below:</h2>
+    <div class="m-4">
+        <input class="form-control" type="text" id="main-input" name="q" required/>
+    </div>
 
-      <div class="d-grid gap-2">
+    <div class="d-grid gap-2">
         <button class="btn btn-primary mx-4" type="submit">Search</button>
-      </div>
-    </form>
-    <script src="./script.js"></script>
-  </body>
+    </div>
+</form>
+
+<div id="stat-page">
+
+</div>
+
+
+<script src="./js/main.js"></script>
+</body>
 </html>

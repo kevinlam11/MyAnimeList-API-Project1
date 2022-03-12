@@ -4,6 +4,10 @@
   --background-color: rgba(240, 129, 3, 0.8);
 }
 
+body {
+  !important; color: var(--color);
+}
+
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
   height: 550px;
