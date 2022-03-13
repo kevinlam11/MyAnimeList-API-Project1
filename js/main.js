@@ -20,14 +20,15 @@ async function searchForUser(e) {
         console.log('Must enter a string!')
     }
 
-
     // Confirms that the user exists
     fetch(`https://api.jikan.moe/v4/users/${value}`)
         .then((res) => {
             if (res.status === 200) {
-                window.location.href = window.location.href.replace('/index.html', '/startPage.html' + "#" + value)
-                console.log(window.location.href)
-                // window.location.href = 'http://localhost:63342/MyAnimeList-API-Project1/startPage.html' + "#" + value;
+                var newUrl = new URL('MyAnimeList-API-Project1/startPage.html' + '#' + value, window.location.origin)
+
+                console.log(window.location.origin)
+                console.log(newUrl)
+                window.location.href = newUrl
             } else {
                 console.log('User not found!')
                 showNotFoundMessage();
