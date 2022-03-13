@@ -8,7 +8,7 @@ function showNotFoundMessage() {
     notFoundEl.removeAttribute('hidden')
     setTimeout(() => {
         notFoundEl.setAttribute('hidden', '')
-    }, 4000)
+    }, 5000)
 }
 
 
@@ -24,11 +24,7 @@ async function searchForUser(e) {
     fetch(`https://api.jikan.moe/v4/users/${value}`)
         .then((res) => {
             if (res.status === 200) {
-                var newUrl = new URL('MyAnimeList-API-Project1/startPage.html' + '#' + value, window.location.origin)
-
-                console.log(window.location.origin)
-                console.log(newUrl)
-                window.location.href = newUrl
+                window.location.href = new URL('MyAnimeList-API-Project1/startPage.html' + '#' + value, window.location.origin)
             } else {
                 console.log('User not found!')
                 showNotFoundMessage();
