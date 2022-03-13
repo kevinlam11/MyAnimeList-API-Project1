@@ -1,0 +1,11 @@
+body {
+    !important; font-family: "Hiragino Sans";
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    font-weight: bold;
+}
