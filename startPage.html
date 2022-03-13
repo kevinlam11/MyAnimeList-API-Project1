@@ -1,156 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Bootstrap Example</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
 
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse visible-xs">
-      <div class="container-fluid">
+</head>
+<body>
+<nav class="navbar navbar-inverse visible-xs">
+    <div class="container-fluid">
         <div class="navbar-header">
-          <button
-            type="button"
-            class="navbar-toggle"
-            data-toggle="collapse"
-            data-target="#myNavbar"
-          >
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">My Animelist API</a>
+            <button
+                    type="button"
+                    class="navbar-toggle"
+                    data-toggle="collapse"
+                    data-target="#myNavbar"
+            >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">My Animelist API</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Backbutton</a></li>
-            <li><a href="#">past search 1 </a></li>
-            <li><a href="#">past search 2 </a></li>
-            <li><a href="#">past search 3 </a></li>
-          </ul>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Backbutton</a></li>
+                <li><a href="#">past search 1 </a></li>
+                <li><a href="#">past search 2 </a></li>
+                <li><a href="#">past search 3 </a></li>
+            </ul>
         </div>
-      </div>
-    </nav>
+    </div>
+</nav>
 
-    <div class="container-fluid">
-      <div class="row content">
+<div class="container-fluid">
+    <div class="row content">
         <div class="col-sm-2 sidenav hidden-xs">
-          <h2>My Animelist API</h2>
-          <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#section1">Backbutton</a></li>
-            <li><a href="#section2">past search</a></li>
-            <li><a href="#section3">past search</a></li>
-            <li><a href="#section3">past search</a></li>
-          </ul>
-          <br />
+            <h2>My Animelist API</h2>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#section1">Backbutton</a></li>
+                <li><a href="#section2">past search</a></li>
+                <li><a href="#section3">past search</a></li>
+                <li><a href="#section3">past search</a></li>
+            </ul>
+            <br/>
         </div>
-        <br />
+        <br/>
         <div class="jumbotron jumbotron-fluid">
-          <img
-            src="html5.gif"
-            alt="USER IMAGE"
-            style="max-width: 400px; max-height: 435px"
-          />
-          <div class="container">
-            <h1 class="display-4">USERNAME</h1>
-            <div class="stat-box">
-              <ui class="lead">
-                  <li>last_online": "string</li>
-                  <li>gender": "string</li>
-                  <li>birthday": "string</li>
-                  <li>location": "string</li>
-                  <li>joined": "string</li>
-              </ui>
+            <img
+                    src="html5.gif"
+                    alt="USER IMAGE"
+                    style="max-width: 400px; max-height: 435px"
+            />
+            <div class="container">
+                <h1 class="display-4">USERNAME</h1>
+                <div class="stat-box">
+                    <ui class="lead">
+                        <li>last_online": "string</li>
+                        <li>gender": "string</li>
+                        <li>birthday": "string</li>
+                        <li>location": "string</li>
+                        <li>joined": "string</li>
+                    </ui>
 
+                </div>
             </div>
-          </div>
         </div>
 
-          <div class="row">
+        <div class="row">
             <div class="col-sm-4">
-              <div class="well">
-                <h4 class="card-text">MY TOP ANIME/MANGA</h4>
-                <p class="card-text">Display top anime</p>
-               </div>
+                <div id="personal-favorite-card" class="well">
+                    <h4 class="card-text">MY TOP ANIME/MANGA</h4>
+                    <p class="card-text">Display top anime</p>
+                </div>
             </div>
 
             <div class="col-sm-4">
-              <div class="well">
-                <h4 class="card-text">TOP GLOBAL ANIME/MANGA</h4>
-                <p class="card-text">Display top anime overall</p>
-              </div>
-            </div>
-
-            <div class="col-sm-4">
-
-              <div  id='anime-read-card'class="well">
-                <h4>Info</h4>
-                <p>"days_watched": 0,
-                  "watching": 0,
-                  "completed": 0,
-                </p>
-              </div>
-          </div>
-
-          <!-- second row -->
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="well">
-               <p class="card-text">Display top Manga</p>
-              </div>
-            </div>
-
-            <div class="col-sm-4">
-              <div class="well">
-               <p class="card-text">Display top manga overall</p>
-              </div>
+                <div id="top-anime-card" class="well">
+                    <h4 class="card-text">TOP GLOBAL ANIME/MANGA</h4>
+                    <p class="card-text">Display top anime overall</p>
+                </div>
             </div>
 
             <div class="col-sm-4">
 
-            <div id="manga-read-card" class="well">
-              <h4>Info</h4>
-              <p>"days_watched": 0,
-                "watching": 0,
-                "completed": 0
-              </p>
+                <div id='anime-read-card' class="well">
+                    <h4>Info</h4>
+                    <p>"days_watched": 0,
+                        "watching": 0,
+                        "completed": 0,
+                    </p>
+                </div>
             </div>
-          </div>
 
-          <!-- The third row -->
-        </div>
+            <!-- second row -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <div id="top-manga-card" class="well">
+                        <p class="card-text">Display top Manga</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="well">
+                        <p class="card-text">Display top manga overall</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+
+                    <div id="manga-read-card" class="well">
+                        <h4>Info</h4>
+                        <p>"days_watched": 0,
+                            "watching": 0,
+                            "completed": 0
+                        </p>
+                    </div>
+                </div>
+
+                <!-- The third row -->
+            </div>
             <div class="col-sm-12">
-              <div class="well">
-                <h4 class="card-text">Bio</h4>
-                <p class="card-text">FILLERFILLERFILLER
-                </p>
-              </div>
+                <div class="well">
+                    <h4 class="card-text">Bio</h4>
+                    <p class="card-text">FILLERFILLERFILLER
+                    </p>
+                </div>
             </div>
 
-           </div>
         </div>
-      </div>
+    </div>
+</div>
 
-    <footer>
-      <div class="personal-info" >
+<footer>
+    <div class="personal-info">
 
-          <p>https://github.com/kevinlam11</p>
-          <p>https://github.com/Guru-Darji</p>
-          <p>https://github.com/JanInquisitor</p>
+        <p>https://github.com/kevinlam11</p>
+        <p>https://github.com/Guru-Darji</p>
+        <p>https://github.com/JanInquisitor</p>
 
-      </div>
-    </footer>
-    <script src="./js/secondScript.js"></script>
-  </body>
+    </div>
+</footer>
+<script src="./js/secondScript.js"></script>
+</body>
 </html>
   

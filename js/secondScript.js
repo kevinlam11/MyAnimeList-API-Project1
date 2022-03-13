@@ -1,6 +1,3 @@
-// URLs, this will be replaced soon.
-var favoritesUrl = 'https://api.jikan.moe/v4/users/Batist/favorites'
-
 // This the first fetch function
 async function fetchMalProfileData(username) {
     var userInfo = {};
@@ -98,13 +95,43 @@ async function getUserStatsAndRender(username) {
     }
 }
 
-async function getUserFavorites() {
+async function getUserFavorites(username) {
+    var favoritesEl = document.querySelector('#personal-favorite-card');
+    var favoritesUrl = `https://api.jikan.moe/v4/users/${username}/favorites`
+
+
     try {
         const res = await fetch(favoritesUrl);
         const data = await res.json();
-        console.log(data);
+
+        var markup = `<h4 class="card-text">My Favorites:</h4>
+                      <p class="card-text">Anime: ${data.data.anime}</p>
+                      <p class="card-text">Manga: ${data.data.manga}</p>
+                      <p class="card-text">Characters: ${data.data.characters}</p>
+                       <p class="card-text">People: ${data.data.people}</p>`;
+
+
+        favoritesEl.innerHTML = '';
+        favoritesEl.insertAdjacentHTML('afterbegin', markup)
+        // console.log(data, 'favorites!');
     } catch (error) {
         console.log(error);
+    }
+}
+
+async function getTopAnimeAndManga() {
+    try {
+        const resOne = await fetch(`https://api.jikan.moe/v4/top/anime`);
+        const topAnime = await resOne.json()
+        console.log(topAnime)
+
+        const resTwo = await fetch(`https://api.jikan.moe/v4/top/manga`);
+        const topManga = await resTwo.json()
+        console.log(topManga)
+
+    } catch (error) {
+        console.log(error);
+
     }
 }
 
@@ -113,10 +140,11 @@ async function fetchDataSets(username) {
 
     await fetchMalProfileData(username);
     await getUserStatsAndRender(username);
-    // getUserFavorites()
+    await getUserFavorites(username);
+    await getTopAnimeAndManga();
 
     if (bothSets === true) {
-        fetchMangaDexData()
+        await fetchMangaDexData()
     }
 }
 

@@ -3,26 +3,35 @@ var mainFormEl = document.querySelector('#main-form');
 var mainInputEl = document.querySelector('#main-input')
 
 
+function showNotFoundMessage() {
+    var notFoundEl = document.querySelector('#notFound-message');
+    notFoundEl.removeAttribute('hidden')
+    setTimeout(() => {
+        notFoundEl.setAttribute('hidden', '')
+    }, 4000)
+}
+
+
 async function searchForUser(e) {
-    // e.preventDefault()
+    e.preventDefault()
     var value = mainInputEl.value;
+    console.log(typeof value)
 
-
-    var response = await fetch(`https://api.jikan.moe/v4/users/${value}`)
-        .catch(err => {
-            if (err) {
-                return err;
-            }
-        });
-
-    console.log(response)
-    if (response.status === 200) {
-        // Save local storage
-
-        window.location.href = 'http://localhost:63342/MyAnimeList-API-Project1/startPage.html' + "#" + value;
+    if (typeof value !== 'string') {
+        console.log('Must enter a string!')
     }
 
 
+    // Confirms that the user exists
+    fetch(`https://api.jikan.moe/v4/users/${value}`)
+        .then((res) => {
+            if (res.status === 200) {
+                window.location.href = 'http://localhost:63342/MyAnimeList-API-Project1/startPage.html' + "#" + value;
+            } else {
+                console.log('User not found!')
+                showNotFoundMessage();
+            }
+        })
 }
 
 mainFormEl.addEventListener('submit', searchForUser)
