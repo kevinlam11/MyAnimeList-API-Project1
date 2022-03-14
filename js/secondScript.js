@@ -215,7 +215,7 @@ async function getGif() {
     try {
         const res = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${APIKey}&q=anime`)
         const data = await res.json()
-        var randInt = Math.floor(Math.random() * 50);
+        var randInt = Math.floor(Math.random() * 10);
         var markup = `<div class="div-box">
                         <h4>Random Gif</h4>
                         <img src="${data.data[randInt].images.original.url}" alt="An anime gif"> 
@@ -224,7 +224,6 @@ async function getGif() {
         gifCardEl.innerHTML = '';
         gifCardEl.insertAdjacentHTML('afterbegin', markup)
 
-        console.log(data.data);
     } catch (error) {
         console.log('There was an error!')
     }
