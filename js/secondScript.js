@@ -168,9 +168,9 @@ class TopRank {
             const topAnime = await resOne.json()
             this.topAnime = topAnime.data.slice(0, 9)
 
-            // const resTwo = await fetch(`https://api.jikan.moe/v4/top/manga`);
-            // const topManga = await resTwo.json()
-            // this.topManga = topManga.data.slice(0, 9)
+            const resTwo = await fetch(`https://api.jikan.moe/v4/top/manga`);
+            const topManga = await resTwo.json()
+            this.topManga = topManga.data.slice(0, 9)
 
         } catch (error) {
             console.log(error);
@@ -184,31 +184,53 @@ class TopRank {
         mangas = '';
 
         var topAnimeCardEl = document.querySelector('#top-anime-card');
-        // var topMangaCardEl = document.querySelector('#top-manga-card');
+        var topMangaCardEl = document.querySelector('#top-manga-card');
 
-        this.topAnime.forEach((a, i) => {
+        this.topAnime.forEach((a) => {
             animes += `, ${a.title}`;
         })
-        // this.topManga.forEach((a, i) => {
-        //     mangas += `, ${a.title}`;
-        // })
+        this.topManga.forEach((a) => {
+            mangas += `, ${a.title}`;
+        })
 
         var animeMarkup = `<h4 class="card-text">Top Global Anime</h4>
                            <p class="card-text">${animes}</p>`;
 
-        // var mangaMarkup = `<h4 class="card-text">Top Global Manga</h4>
-        //                    <p class="card-text">${mangas}</p>`;
+        var mangaMarkup = `<h4 class="card-text">Top Global Manga</h4>
+                           <p class="card-text">${mangas}</p>`;
 
         topAnimeCardEl.innerHTML = '';
+        topMangaCardEl.innerHTML = '';
         topAnimeCardEl.insertAdjacentHTML('afterbegin', animeMarkup);
-        // topMangaCardEl.insertAdjacentHTML('afterbegin', mangaMarkup);
+        topMangaCardEl.insertAdjacentHTML('afterbegin', mangaMarkup);
 
     }
 }
 
-async function fetchDataSets(username) {
-    var bothSets = false;
 
+async function getGif() {
+    var APIKey = 'AHFzERqQJcZaB2CPuAGSQNaNPGYjvy45'
+    var gifCardEl = document.querySelector('#gif-card');
+
+    try {
+        const res = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${APIKey}&q=anime`)
+        const data = await res.json()
+        var randInt = Math.floor(Math.random() * 50);
+        var markup = `<div class="div-box">
+                        <h4>Random Gif</h4>
+                        <img src="${data.data[randInt].images.original.url}" alt="An anime gif"> 
+                      </div>`
+
+        gifCardEl.innerHTML = '';
+        gifCardEl.insertAdjacentHTML('afterbegin', markup)
+
+        console.log(data.data);
+    } catch (error) {
+        console.log('There was an error!')
+    }
+};
+
+async function fetchDataSets(username) {
     var user = new UserProfile(username);
     var topAnimeManga = new TopRank()
 
@@ -221,10 +243,7 @@ async function fetchDataSets(username) {
     await topAnimeManga.getTopAnimeAndManga()
     topAnimeManga.renderInfo()
 
-    console.log(topAnimeManga.topAnime)
-    // console.log(topAnimeManga.topManga)
-
-
+    await getGif();
 }
 
 

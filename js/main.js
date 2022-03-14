@@ -30,6 +30,8 @@ async function searchForUser(e) {
                 showNotFoundMessage();
             }
         })
+    // Saves to local storage
+    // localStorage.setItem();
 }
 
 mainFormEl.addEventListener('submit', searchForUser)
