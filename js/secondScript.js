@@ -213,7 +213,7 @@ async function getGif() {
     var gifCardEl = document.querySelector('#gif-card');
 
     try {
-        const res = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${APIKey}&q=anime`)
+        const res = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${APIKey}&q=Hamtaro`)
         const data = await res.json()
         var randInt = Math.floor(Math.random() * 10);
         var markup = `<div class="div-box">
